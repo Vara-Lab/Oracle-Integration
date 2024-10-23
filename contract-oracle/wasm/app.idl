@@ -1,0 +1,41 @@
+type OracleServiceResponse = enum {
+  NoGivenState,
+  WIllChangeRandomNumber,
+  WIllChangeRandomWord,
+  RandomNumberSet,
+  RandomWordSet,
+  RandomNumber: u64,
+  RandomWord: str,
+  NewProviderSet,
+  Errors: OracleErrors,
+};
+
+type OracleErrors = enum {
+  NoProviderInContract,
+  ActionOnlyForOwner,
+  ActionOnlyForProviderOrOwner,
+  BadRange: struct { min: u64, max: u64 },
+};
+
+constructor {
+  New : ();
+};
+
+service OracleService {
+  ChangeProvider : (new_provider: actor_id) -> OracleServiceResponse;
+  ChangeRandomNumber : () -> OracleServiceResponse;
+  ChangeRandomNumberInRange : (min: u64, max: u64) -> OracleServiceResponse;
+  ChangeRandomWord : () -> OracleServiceResponse;
+  Hello : () -> str;
+  SetNewRandomNumber : (new_random_number: u64) -> OracleServiceResponse;
+  SetNewRandomWord : (new_random_word: str) -> OracleServiceResponse;
+  query ActualRandomNumber : () -> OracleServiceResponse;
+  query ActualRandomWord : () -> OracleServiceResponse;
+
+  events {
+    RequestRandomNumber;
+    RequestRandomWord;
+    RequestRangeOfRandomNumbers: struct { min: u64, max: u64 };
+  }
+};
+

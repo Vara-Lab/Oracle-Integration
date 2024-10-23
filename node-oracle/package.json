@@ -1,0 +1,32 @@
+{
+  "name": "Node-Express-Oracle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node build/index.js",
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@gear-js/api": "0.38.3",
+    "@polkadot/api": "13.2.1",
+    "axios": "^1.7.7",
+    "express": "5.0.1",
+    "sails-js": "0.3.0",
+    "sails-js-parser": "0.1.0",
+    "sails-js-types": "0.0.1",
+    "sails-js-util": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.7",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}
